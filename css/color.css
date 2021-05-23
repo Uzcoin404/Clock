@@ -1,0 +1,74 @@
+/* Dark theme color */
+
+main.dark-mode{
+    transition: all 1s;
+}
+
+/* Day theme color */
+
+main.day-mode{
+    background: #fff;
+    transition: all 1s;
+}
+main.day-mode .content{
+    background: #fff;
+    box-shadow: 0 3px 10px 3px #091921;
+}
+
+main.day-mode .panel,
+main.day-mode .panel__content::before,
+main.day-mode .s::before,
+main.day-mode .clockCircle::before,
+main.day-mode .clockNumber__arr::before,
+main.day-mode .stopwatch__text::before
+{
+    background: #091921;
+}
+main.day-mode h2,
+main.day-mode .clockCircle
+{
+    background: #fff;
+}
+
+main.day-mode .panel p,
+    main.day-mode .radio,
+    main.day-mode .panel i{
+
+    color: #fff;
+}
+main.day-mode #panelX{
+    color: #fff;
+}
+main.day-mode .fas.fa-cog,
+main.day-mode h2{
+    color: #091921;
+}
+
+main.day-mode .numberClock__hour,
+main.day-mode .numberClock__min,
+main.day-mode .numberClock__sec,
+main.day-mode .hour,
+main.day-mode .min,
+main.day-mode .sec{
+    background-color: #fff;
+    box-shadow: 0 5px 5px #091921;
+    color: #091921;
+}
+
+main.day-mode .clockNumber__num
+{
+    color: #091921;
+}
+main.day-mode .clock__button.show,
+main.day-mode .stopwatch__button.show{
+    background-color: #8aafff;
+}
+main.day-mode .clock__button::after,
+main.day-mode .stopwatch__button::before,
+main.day-mode .clock__button::before{
+    background-color: #0051ff;
+}
+main.day-mode .start,
+main.day-mode .title::after{
+    background-color: #8aafff;
+}

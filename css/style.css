@@ -1,0 +1,550 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main{
+    position: relative;
+    min-height: 100vh;
+    height: 100%;
+    background: #091921;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    max-width: 400px;
+    width: 100%;
+    background-color: #091921;
+    color: #fff;
+    overflow: hidden;
+    transition: all .5s;
+    position: relative;
+    box-shadow: 0 0 10px #111, 0 0 10px #111, 0 0 10px #111;
+}
+
+/* Dark mode and Day mode */
+
+.panel{
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    background-color: #fff;
+    width: 280px;
+    border-radius: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s;
+    transform: translateY(-150%);
+}
+.panel__content{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px 15px;
+}
+.panel__content::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    transform: translateY(-40%);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+}
+.panel p{
+    text-align: justify;
+    font-size: 15px;
+    font-weight: 500;
+    color: #001d2b;
+    line-height: 22px;
+    padding-bottom: 15px;
+}
+.panel input{
+    margin: 5px 7px;
+}
+.radio{
+    transform: translateX(-15px);
+    font-size: 15px;
+    font-weight: 500;
+    color: #001d2b;
+    display: inline-block;
+    vertical-align: middle;
+}
+#panelX{
+    position: absolute;
+    top: 0;
+    transform: translateY(-40%);
+    font-size: 24px;
+    color: #103041;
+    cursor: pointer;
+}
+
+.fas.fa-cog{
+    font-size: 24px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+    cursor: pointer;
+    animation: rotate 3s linear infinite;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+.fas.fa-cog:hover{
+    animation: none;
+}
+
+.fas.fa-cog.active{
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+.panel.active{
+    transition-delay: 0.1s;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.clock__content{
+    transition: all .5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__blog{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.stopwatch__content, .clock__content{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+
+.title{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+}
+.title::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: #103041;
+}
+
+/* Title styling */
+
+h2{
+    font-size: 20px;
+    position: relative;
+    background: #0d222e;
+    padding: 15px 0;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.clock__button::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: #fff;
+    z-index: 2;
+}
+h2::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all .5s;
+    z-index: 1;
+}
+
+/* Stopwatch indicator */
+
+.stopwatch__button{
+    position: relative;
+}
+.stopwatch__button::after{
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    opacity: 0;
+}
+.stopwatch__button.active::after{
+    animation: indicator 1s linear infinite;
+    opacity: 1;
+}
+.stopwatch__button.reActive::after{
+    animation: none;
+    opacity: 1;
+}
+@keyframes indicator{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: .1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.clock__button.show{
+    background-color: #003149;
+}
+.clock__button.show::before{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.stopwatch__button.show::before{
+    opacity: 1;
+    transform: translateX(0);
+}
+.stopwatch__button.show{
+    background-color: #003149;
+}
+
+h2:hover::before{
+    transform: translateX(0%);
+    opacity: 1;
+}
+i{
+    padding: 0 5px;
+    font-size: 18px;
+}
+
+/* Arrow Clock Styling */
+
+.clock{
+    padding: 80px 0 60px;
+}
+
+.clockCircle{
+    --position: 15px;
+    width: 250px;
+    height: 250px;
+    background: #091921;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -15px 15px #ffffff0d,
+                inset 0 -15px 15px #ffffff0d,
+                0 15px 15px #0000004d,
+                inset 0 15px 15px #0000004d;
+}
+.clockCircle::before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    z-index: 4;
+    border-radius: 50%;
+}
+.h {
+    width: 6px;
+    height: 100%;
+    position: absolute;
+}
+.h::before {
+    content: '';
+    position: absolute;
+    border-radius: 3px;
+    width: 100%;
+    height: 30%;
+    background: #ff004c;
+    top: calc(20%);
+    z-index: 1; 
+}
+.m {
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+}
+.m::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    border-radius: 2px;
+    background: #0051ff;
+    top: calc(15% + 6px);
+}
+.s {
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+}
+.s::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 65%;
+    border-radius: 1px;
+    background: #fff;
+    top: 6px;
+}
+.clockNumber {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.clockNumber__num {
+    color: #fff;
+    font-size: 22px;
+    position: absolute;
+}
+.clockNumber__num12 {
+    top: var(--position);
+}
+.clockNumber__arr {
+    position: absolute;
+    width: 3px;
+    height: 100%;
+}
+.clockNumber__arr::before {
+    content: '';
+    display: block;
+    height: 15px;
+    background: #fff;
+    width: 100%;
+    margin-top: 15px; 
+}
+.clockNumber__arr1 {
+    transform: rotate(30deg);
+}
+.clockNumber__arr2 {
+    transform: rotate(60deg);
+}
+.clockNumber__arr4 {
+    transform: rotate(120deg);
+}
+.clockNumber__arr5 {
+    transform: rotate(150deg);
+}
+.clockNumber__arr7 {
+    transform: rotate(210deg);
+}
+.clockNumber__arr8 {
+    transform: rotate(240deg);
+}
+.clockNumber__arr10 {
+    transform: rotate(300deg);
+}
+.clockNumber__arr11 {
+    transform: rotate(330deg);
+}
+.clockNumber__num3 {
+    right: calc(var(--position) + 3px);
+}
+.clockNumber__num6 {
+    bottom: var(--position);
+}
+.clockNumber__num9 {
+    left: calc(var(--position) + 3px);
+}
+
+    /* Number Clock styling */
+
+.numberClock{
+    padding: 25px 0 75px;
+    display: flex;
+    position: relative;
+}
+.numberClock__hour, .numberClock__min, .numberClock__sec{
+    font-size: 26px;
+    font-family: sans-serif;
+    padding: 7px 10px;
+    margin: 0 15px;
+    background: #091921;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px;
+}
+.numberClock__hour::before, .numberClock__hour::after{
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+    animation: animate 2s linear infinite;
+}
+.numberClock__min::before, .numberClock__min::after{
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+    animation: animate 1s linear infinite;
+}
+.numberClock__hour::before{
+    top: 40px;
+    left: 75px;
+}
+.numberClock__hour::after{
+    bottom: 85px;
+    left: 75px;
+}
+.numberClock__min::before{
+    top: 40px;
+    right: 75px;
+}
+.numberClock__min::after{
+    bottom: 85px;
+    right: 75px;
+}
+
+@keyframes animate{
+
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+
+}
+
+/* STOPWATCH STYLING */
+
+.stopwatch__content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translateX(100%);    
+    transition: all .5s;
+}
+.stopwatch{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    grid-gap: 20px;
+    padding-bottom: 25px;
+}
+.hour, .min, .sec{
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px;
+}
+.stHour, .stMin, .stSec{
+    font-family: sans-serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+.stopwatch p{
+    position: relative;
+    font-size: 18px;
+    padding-top: 5px;
+}
+.stopwatch__text::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+}
+.start{
+    position: relative;
+    width: 125px;
+    height: 50px;
+    border-radius: 25px;
+    margin-top: 25px;
+    font-size: 20px;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: #fff;
+}
+.start span{
+    position: absolute;
+    background-color: #000;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: button 1s linear infinite;
+}
+
+@keyframes button {
+    0%{
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100%{
+        width: 250px;
+        height: 250px;
+        opacity: 0.5;
+    }
+}
+
+/* ANIMATION */
+
+.content.move-mode .stopwatch__content{
+    transform: translateX(0%);
+    display: block;
+    display: flex;
+}
+.content.move-mode .clock__content{
+    transform: translateX(-100%);
+    transition: all .5s;
+}
+
+

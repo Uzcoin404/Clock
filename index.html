@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/color.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+    <main class="main">
+        
+        <div class="content">
+
+            <div class="title"> 
+                <h2 class="clock__button"><i class="fas fa-clock"></i>Clock</h2>
+                <h2 class="stopwatch__button"><i class="fas fa-stopwatch"></i>Stopwatch</h2>
+            </div>
+
+            <div class="main__blog">
+
+                <div class="clock__content">
+
+                    <div class="clock">
+                        <div class="clockCircle">
+
+                            <div class="clockNumber">
+                                <div class="clockNumber__num clockNumber__num12">12</div>
+                                <div class="clockNumber__arr clockNumber__arr1"></div>
+                                <div class="clockNumber__arr clockNumber__arr2"></div>
+                                <div class="clockNumber__num clockNumber__num3">3</div>
+                                <div class="clockNumber__arr clockNumber__arr4"></div>
+                                <div class="clockNumber__arr clockNumber__arr5"></div>
+                                <div class="clockNumber__num clockNumber__num6">6</div>
+                                <div class="clockNumber__arr clockNumber__arr7"></div>
+                                <div class="clockNumber__arr clockNumber__arr8"></div>
+                                <div class="clockNumber__num clockNumber__num9">9</div>
+                                <div class="clockNumber__arr clockNumber__arr10"></div>
+                                <div class="clockNumber__arr clockNumber__arr11"></div>
+                            </div>
+        
+                            <div class="s"></div>
+                            <div class="m"></div>
+                            <div class="h"></div>
+
+                        </div>
+                    </div>
+
+                    <div class="numberClock">
+
+                        <div class="numberClock__hour"></div>
+                        <div class="numberClock__min"></div>
+                        <div class="numberClock__sec"></div>
+
+                    </div>
+
+                </div>
+
+                <div class="stopwatch__content">
+
+                    <div class="stopwatch">
+
+                        <div class="hour">
+                            <div class="stHour">00</div>
+                            <p class="stopwatch__text">Hour</p>
+                        </div>
+                        <div class="min">
+                            <div class="stMin">00</div>
+                            <p class="stopwatch__text">Min</p>
+                        </div>
+                        <div class="sec">
+                            <div class="stSec">00</div>
+                            <p class="stopwatch__text">Sec</p>
+                        </div>
+
+
+                    </div>
+
+                    <button class="start" type="button">start</button>
+
+                </div>
+
+            </div>
+
+        </div>
+        
+        <i class="fas fa-cog active" id="settings"></i>
+
+        <div class="panel">
+            <div class="panel__content">
+
+                <p class="panel__text">Choose how Clock looks to you. Select a single theme</p>
+                
+                <i class="fas fa-times" id="panelX"></i>
+
+                <label for="" class="radio">
+                    <input class="dark" type="radio" value="dark" name="pol">Dark theme
+                    <input class="day" type="radio" value="day" name="pol">Day theme
+                </label>
+
+            </div>
+            
+        </div>
+
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
