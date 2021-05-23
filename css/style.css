@@ -38,7 +38,7 @@ main{
     pointer-events: none;
     transition: all .5s;
     transform: translateY(-150%);
-    z-index: 10;
+    z-index: 999;
 }
 .panel__content{
     position: relative;
